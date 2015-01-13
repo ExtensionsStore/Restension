@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Restension configuration
+ *
+ * @category   Aydus
+ * @package    Aydus_Restension
+ * @author     Aydus Consulting <davidt@aydus.com>
+ */
+-->
+<config>
+    <api2>
+        <resource_groups>   
+            <shipping translate="title" module="api2">
+                <title>Shipping</title>
+                <sort_order>130</sort_order>
+                <children>
+                    <shipping_rate translate="title" module="api2">
+                        <title>Shipping Rates</title>
+                        <sort_order>70</sort_order>
+                    </shipping_rate>
+                </children>
+            </shipping>
+            <customer>
+                <children>
+                    <customer_authorization translate="title" module="api2">
+                        <title>Customer Token</title>
+                        <sort_order>80</sort_order>
+                    </customer_authorization>
+                    <customer_registration translate="title" module="api2">
+                        <title>Customer Registration</title>
+                        <sort_order>90</sort_order>
+                    </customer_registration>                    
+                    <customer_forgotpassword translate="title" module="api2">
+                        <title>Customer Forgot Password</title>
+                        <sort_order>100</sort_order>
+                    </customer_forgotpassword>                    
+                </children>                
+            </customer>       
+        </resource_groups>
+        <resources> 
+            <customer_authorization>
+                <group>customer</group>
+                <model>restension/customer_api2_authorization</model>
+                <working_model>customer/customer</working_model>
+                <title>Customer Authorization</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges> 
+                <attributes translate="oauth_token password oauth_verifier">
+                    <oauth_token>Oauth Token</oauth_token>
+                    <password>Password</password>
+                    <oauth_verifier>Oauth Verifier</oauth_verifier>                    
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/customers/authorization/:oauth_token/:email/:password</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </customer_authorization>   
+            <customer_registration>
+                <group>customer</group>
+                <model>restension/customer_api2_registration</model>
+                <working_model>customer/customer</working_model>
+                <title>Customer Registration</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges> 
+                <attributes translate="email password confirmation firstname lastname store_id">
+                    <email>Email</email>
+                    <password>Password</password>
+                    <confirmation>Confirmation</confirmation>
+                    <firstname>First Name</firstname>                    
+                    <lastname>Last Name</lastname>                    
+                    <store_id>Store Id</store_id>                    
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/customers/registration/:oauth_token</route>
+                        <action_type>collection</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>                           
+            </customer_registration>
+            <customer_forgotpassword>
+                <group>customer</group>
+                <model>restension/customer_api2_forgotpassword</model>
+                <working_model>customer/customer</working_model>
+                <title>Customer Forgot Password</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges> 
+                <attributes translate="email result">
+                    <email>Email</email>
+                    <result>Result</result>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/customers/forgotpassword/:email</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>                           
+            </customer_forgotpassword>
+            <shipping_rate translate="title" module="api2">
+                <group>shipping_rate</group>
+                <model>restension/shipping_api2_rate</model>
+                <working_model>shipping/rate_abstract</working_model>
+                <title>Shipping Rate</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <customer>
+                        <retrieve>1</retrieve>
+                        <create>1</create>
+                    </customer>
+                    <guest>
+                        <retrieve>1</retrieve>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes translate="firstname lastname street city region postcode country rates">
+                    <firstname>First Name</firstname>
+                    <lastname>Last Name</lastname>
+                    <street>Street</street>
+                    <city>City</city>
+                    <region>Region</region>
+                    <postcode>Postcode</postcode>
+                    <country>Country</country>
+                    <telephone>Telephone</telephone>
+                    <rates>Rates</rates>
+                </attributes>
+                <include_attributes>
+                    <customer>
+                        <read>
+                            <rates>1</rates>
+                        </read>
+                    </customer>
+                    <guest>
+                        <read>
+                            <rates>1</rates>
+                        </read>
+                    </guest>
+                </include_attributes>                
+                <routes>
+                    <route_collection>
+                        <route>/shipping/request</route>
+                        <action_type>collection</action_type>
+                    </route_collection>                    
+                    <route_entity>
+                        <route>/shipping/rates/:id</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </shipping_rate>  
+        </resources>
+    </api2>
+</config>

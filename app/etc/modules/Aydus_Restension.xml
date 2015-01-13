@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Restension module
+ *
+ * @category   Aydus
+ * @package    Aydus_Restension
+ * @author     Aydus Consulting <davidt@aydus.com>
+ */
+-->
+<config>
+    <modules>
+        <Aydus_Restension>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Aydus_Restension>
+    </modules>
+</config>

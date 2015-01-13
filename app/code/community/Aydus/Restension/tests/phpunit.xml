@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit>
+  <testsuites>
+    <testsuite name="Aydus_Restension">
+      <file>ConsumerTest.php</file>
+      <file>ModelTest.php</file>
+    </testsuite>
+  </testsuites>
+</phpunit>

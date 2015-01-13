@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Restension config
+ *
+ * @category   Aydus
+ * @package    Aydus_Restension
+ * @author     Aydus Consulting <davidt@aydus.com>
+ */
+-->
+<config>
+    <modules>
+        <Aydus_Restension>
+            <version>0.1.0</version>
+        </Aydus_Restension>
+    </modules>
+    <global>
+        <models>
+            <aydus_restension>
+                <class>Aydus_Restension_Model</class>
+                <resourceModel>aydus_restension_resource</resourceModel>
+            </aydus_restension>
+            <aydus_restension_resource>
+                <class>Aydus_Restension_Model_Resource</class>
+                <entities>
+                </entities>
+            </aydus_restension_resource>            
+        </models>
+        <helpers>
+            <aydus_restension>
+                <class>Aydus_Restension_Helper</class>
+            </aydus_restension>
+        </helpers>
+        <resources>
+            <aydus_restension_setup>
+                <setup>
+                    <module>Aydus_Restension</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </aydus_restension_setup>
+        </resources>        
+    </global>         
+</config>

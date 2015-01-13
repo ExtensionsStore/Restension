@@ -1,0 +1,4 @@
+app/code/community/Aydus/Restension         app/code/community/Aydus/Restension/
+app/etc/modules/Aydus_Restension.xml        app/etc/modules/
+
+@shell rm -rf $PROJECT/var/cache/*
