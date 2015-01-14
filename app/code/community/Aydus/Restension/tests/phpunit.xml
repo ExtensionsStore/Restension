@@ -2,8 +2,8 @@
 <phpunit>
   <testsuites>
     <testsuite name="Aydus_Restension">
-      <file>ConsumerTest.php</file>
-      <file>ModelTest.php</file>
+      <file>SetupTest.php</file>
+      <file>CustomerTest.php</file>
     </testsuite>
   </testsuites>
 </phpunit>

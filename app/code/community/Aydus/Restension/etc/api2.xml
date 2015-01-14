@@ -27,10 +27,10 @@
                         <title>Customer Token</title>
                         <sort_order>80</sort_order>
                     </customer_authorization>
-                    <customer_registration translate="title" module="api2">
-                        <title>Customer Registration</title>
+                    <customer_account translate="title" module="api2">
+                        <title>Customer Account</title>
                         <sort_order>90</sort_order>
-                    </customer_registration>                    
+                    </customer_account>                    
                     <customer_forgotpassword translate="title" module="api2">
                         <title>Customer Forgot Password</title>
                         <sort_order>100</sort_order>
@@ -39,9 +39,36 @@
             </customer>       
         </resource_groups>
         <resources> 
+            <customer_account>
+                <group>customer</group>
+                <model>aydus_restension/resource_customer_api2_account</model>
+                <working_model>customer/customer</working_model>
+                <title>Customer Account</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges> 
+                <attributes translate="email password confirmation firstname lastname store_id">
+                    <email>Email</email>
+                    <password>Password</password>
+                    <confirmation>Confirmation</confirmation>
+                    <firstname>First Name</firstname>                    
+                    <lastname>Last Name</lastname>                    
+                    <store_id>Store Id</store_id>                    
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/customers/account/:oauth_token</route>
+                        <action_type>collection</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>                           
+            </customer_account>        
             <customer_authorization>
                 <group>customer</group>
-                <model>restension/customer_api2_authorization</model>
+                <model>aydus_restension/resource_customer_api2_authorization</model>
                 <working_model>customer/customer</working_model>
                 <title>Customer Authorization</title>
                 <sort_order>10</sort_order>
@@ -63,36 +90,9 @@
                 </routes>
                 <versions>1</versions>
             </customer_authorization>   
-            <customer_registration>
-                <group>customer</group>
-                <model>restension/customer_api2_registration</model>
-                <working_model>customer/customer</working_model>
-                <title>Customer Registration</title>
-                <sort_order>10</sort_order>
-                <privileges>
-                    <guest>
-                        <create>1</create>
-                    </guest>
-                </privileges> 
-                <attributes translate="email password confirmation firstname lastname store_id">
-                    <email>Email</email>
-                    <password>Password</password>
-                    <confirmation>Confirmation</confirmation>
-                    <firstname>First Name</firstname>                    
-                    <lastname>Last Name</lastname>                    
-                    <store_id>Store Id</store_id>                    
-                </attributes>
-                <routes>
-                    <route_entity>
-                        <route>/customers/registration/:oauth_token</route>
-                        <action_type>collection</action_type>
-                    </route_entity>
-                </routes>
-                <versions>1</versions>                           
-            </customer_registration>
             <customer_forgotpassword>
                 <group>customer</group>
-                <model>restension/customer_api2_forgotpassword</model>
+                <model>aydus_restension/resource_customer_api2_forgotpassword</model>
                 <working_model>customer/customer</working_model>
                 <title>Customer Forgot Password</title>
                 <sort_order>10</sort_order>
@@ -115,7 +115,7 @@
             </customer_forgotpassword>
             <shipping_rate translate="title" module="api2">
                 <group>shipping_rate</group>
-                <model>restension/shipping_api2_rate</model>
+                <model>aydus_restension/resource_shipping_api2_rate</model>
                 <working_model>shipping/rate_abstract</working_model>
                 <title>Shipping Rate</title>
                 <sort_order>10</sort_order>

@@ -15,6 +15,16 @@
         </Aydus_Restension>
     </modules>
     <global>
+	    <blocks>
+            <aydus_restension>
+                <class>Aydus_Restension_Block</class>
+            </aydus_restension>
+			<oauth>
+				<rewrite>
+					<adminhtml_oauth_consumer_edit_form>Aydus_Restension_Block_Adminhtml_Oauth_Consumer_Edit_Form</adminhtml_oauth_consumer_edit_form>
+				</rewrite>
+			</oauth>            
+	    </blocks>
         <models>
             <aydus_restension>
                 <class>Aydus_Restension_Model</class>
