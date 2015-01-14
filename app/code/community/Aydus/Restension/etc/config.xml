@@ -14,17 +14,30 @@
             <version>0.1.0</version>
         </Aydus_Restension>
     </modules>
-    <global>
-	    <blocks>
+    <adminhtml>
+        <events>
+            <model_save_after>
+                <observers>
+                    <restension_consumer_store>
+                        <type>singleton</type>
+                        <class>aydus_restension/observer</class>
+                        <method>saveConsumerStore</method>
+                    </restension_consumer_store>
+                </observers>
+            </model_save_after>
+        </events>        
+    </adminhtml>
+    <global>      
+        <blocks>
             <aydus_restension>
                 <class>Aydus_Restension_Block</class>
             </aydus_restension>
-			<oauth>
-				<rewrite>
-					<adminhtml_oauth_consumer_edit_form>Aydus_Restension_Block_Adminhtml_Oauth_Consumer_Edit_Form</adminhtml_oauth_consumer_edit_form>
-				</rewrite>
-			</oauth>            
-	    </blocks>
+            <oauth>
+                <rewrite>
+                    <adminhtml_oauth_consumer_edit_form>Aydus_Restension_Block_Adminhtml_Oauth_Consumer_Edit_Form</adminhtml_oauth_consumer_edit_form>
+                </rewrite>
+            </oauth>            
+        </blocks>
         <models>
             <aydus_restension>
                 <class>Aydus_Restension_Model</class>
