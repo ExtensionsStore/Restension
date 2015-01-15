@@ -1,13 +1,15 @@
 <?php
 
 /**
- * Authorization resource  implementation
+ * Authorization resource implementation
  * 
- * This guest resource lets you request the Step 2 oauth_token and oauth_verifier without displaying an authorization web page to the user.
+ * This guest resource lets you request the Step 2 oauth_token and oauth_verifier 
+ * without displaying an authorization web page to the user.
  * 
  * Endpoint format: api/rest/customers/authorization/REQUEST_TOKEN/EMAIL/PASSWORD?oauth_token=REQUEST_TOKEN
  * 
- * The request token is the oauth_token you received in Step 1. Encode the request token, email and password.
+ * The request token is the oauth_token you received in Step 1. Encode the request 
+ * token, email and password.
  * 
  * Example: http://www.example.com/api/rest/customers/authorization/f49b2a9681032433c805f5b8628d4c7f/johndoe@gmail.com/testing123?oauth_token=f49b2a9681032433c805f5b8628d4c7f
  * 

@@ -23,14 +23,14 @@
             </shipping>
             <customer>
                 <children>
-                    <customer_authorization translate="title" module="api2">
-                        <title>Customer Token</title>
-                        <sort_order>80</sort_order>
-                    </customer_authorization>
                     <customer_account translate="title" module="api2">
                         <title>Customer Account</title>
                         <sort_order>90</sort_order>
                     </customer_account>                    
+                    <customer_authorization translate="title" module="api2">
+                        <title>Customer Token</title>
+                        <sort_order>80</sort_order>
+                    </customer_authorization>
                     <customer_forgotpassword translate="title" module="api2">
                         <title>Customer Forgot Password</title>
                         <sort_order>100</sort_order>
@@ -71,7 +71,7 @@
                 <model>aydus_restension/resource_customer_api2_authorization</model>
                 <working_model>customer/customer</working_model>
                 <title>Customer Authorization</title>
-                <sort_order>10</sort_order>
+                <sort_order>20</sort_order>
                 <privileges>
                     <guest>
                         <retrieve>1</retrieve>
@@ -95,7 +95,7 @@
                 <model>aydus_restension/resource_customer_api2_forgotpassword</model>
                 <working_model>customer/customer</working_model>
                 <title>Customer Forgot Password</title>
-                <sort_order>10</sort_order>
+                <sort_order>30</sort_order>
                 <privileges>
                     <guest>
                         <retrieve>1</retrieve>
@@ -118,7 +118,7 @@
                 <model>aydus_restension/resource_shipping_api2_rate</model>
                 <working_model>shipping/rate_abstract</working_model>
                 <title>Shipping Rate</title>
-                <sort_order>10</sort_order>
+                <sort_order>40</sort_order>
                 <privileges>
                     <customer>
                         <retrieve>1</retrieve>

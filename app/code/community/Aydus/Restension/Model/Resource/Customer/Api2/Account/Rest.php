@@ -2,6 +2,27 @@
 
 /**
  * Account resource implementation
+ * 
+ * Register a new customer account without displaying a web page to the user.
+ * 
+ * Obtain a normal request token (Step 1). 
+ * 
+ * Endpoint format: api/rest/customers/account/REQUEST_TOKEN
+ * 
+ * Example: http://www.example.com/api/rest/customers/account/f49b2a9681032433c805f5b8628d4c7f
+ * 
+ * POST json:
+ * 
+ * {
+ *   "firstname": "John",
+ *   "lastname": "Doe",
+ *   "email": "john@doe.com",
+ *   "password": "testing123",
+ *   "confirmation" : "testing123",
+ *   "store_id" : 1
+ * }
+ * 
+ * The authorization url location is returned on successful registration
  *
  * @category   Aydus
  * @package    Aydus_Restension
