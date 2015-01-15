@@ -26,6 +26,7 @@ class ConsumerTest extends PHPUnit_Framework_TestCase {
 
         $this->assertTrue($testConsumerCreated);
 
+        //test test customer created
         $websiteId = Mage::app()->getWebsite()->getId();
         $customer = Mage::getModel("customer/customer");
         $customer->setWebsiteId($websiteId);

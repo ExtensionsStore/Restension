@@ -1,6 +1,6 @@
 Restension
 ==========
-Restension extends the Magento REST API. The most useful feature is to be able to login/authorize
+Restension extends the Magento REST API. The primary feature is to be able to login/authorize
 a user without requiring that the user go to your web page to authorize your app (Step 2 in the 
 OAuth 1 dance). 
 
@@ -18,4 +18,5 @@ How to use
 Upload the files to the root of your Magento install and let the install script run.
 The table aydus_restension_shippingmethods will be created, a test app and test customer. 
 
-Enable the new resources:
+Enable the new resources in the admin under System -> Web Services -> Rest Roles.
+Enable the resource attributes in the admin under System -> Web Services -> Rest Attributes.

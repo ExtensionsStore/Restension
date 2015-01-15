@@ -56,5 +56,67 @@ class Aydus_Restension_Helper_Data extends Mage_Core_Helper_Abstract
 	
 	    return $header;
 	}	
+	
+	/**
+	 * 
+	 * @param Mage_Oauth_Model_Consumer|int $consumer
+	 * 
+	 * @return int
+	 */
+	public function getConsumerStoreId($consumer)
+	{
+		$storeId = Mage::app()->getDefaultStoreView()->getId();
+		
+		if (is_int((int)$consumer)){
+			$consumerModel = Mage::getModel('oauth/consumer')->load((int)$consumer);
+		} else {
+			$consumerModel = $consumer;
+		}
+		
+		if ($consumerModel && $consumerModel->getId()){
+			
+    		$resource = Mage::getSingleton('core/resource');
+    		$read = $resource->getConnection('core_read');
+    		$prefix = Mage::getConfig()->getTablePrefix();
+    		$table = $prefix.'aydus_restension_consumer';
+    		$consumerId = $consumerModel->getId();
+    		
+    		$storeId = $read->fetchOne("SELECT store_id FROM $table WHERE consumer_id = '$consumerId'");
+    	}
+		
+		return $storeId;
+	}
+	
+	/**
+	 * http://stackoverflow.com/questions/10589889/returning-header-as-array-using-curl
+	 * 
+	 * @param string $headerContent
+	 * @return array
+	 */
+    public function getHeadersArray($headerContent)
+    {
+        $headers = array();
+    
+        // Split the string on every "double" new line.
+        $arrRequests = explode("\r\n\r\n", $headerContent);
+    
+        // Loop of response headers. The "count() -1" is to 
+        //avoid an empty row for the extra line break before the body of the response.
+        for ($index = 0; $index < count($arrRequests) -1; $index++) {
+    
+            foreach (explode("\r\n", $arrRequests[$index]) as $i => $line)
+            {
+                if ($i === 0)
+                    $headers[$index]['http_code'] = $line;
+                else
+                {
+                    list ($key, $value) = explode(': ', $line);
+                    $headers[$index][$key] = $value;
+                }
+            }
+        }
+    
+        return $headers;
+    }
 
 }

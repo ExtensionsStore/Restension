@@ -46,9 +46,21 @@ abstract class Aydus_Restension_Model_Resource_Customer_Api2_Authorization_Rest 
         $session = Mage::getSingleton('customer/session');
 
         try {
+        	
+        	$websiteId = Mage::app()->getStore()->getWebsite()->getId();
+        	$oauthTokenModel = Mage::getModel('oauth/token');
+        	$oauthTokenModel->load($oauthToken, 'token');
+        	 
+        	if ($oauthTokenModel && $oauthTokenModel->getId()){
+        		$consumerId = $oauthTokenModel->getConsumerId();
+        		$storeId = Mage::helper('aydus_restension')->getConsumerStoreId($consumerId);
+        		$store = Mage::getModel('core/store')->load($storeId);
+        		$website = $store->getWebsite();
+        		$websiteId = $website->getId();
+        	}
             
             $customer = Mage::getModel('customer/customer')
-                ->setWebsiteId(1);//@todo select website
+                ->setWebsiteId($websiteId);
 
             if ($customer->authenticate($email, $password)) {
                 $session->setCustomerAsLoggedIn($customer);
