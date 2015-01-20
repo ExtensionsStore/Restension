@@ -67,10 +67,10 @@ class Aydus_Restension_Helper_Data extends Mage_Core_Helper_Abstract
 	{
 		$storeId = Mage::app()->getDefaultStoreView()->getId();
 		
-		if (is_int((int)$consumer)){
-			$consumerModel = Mage::getModel('oauth/consumer')->load((int)$consumer);
+		if (is_object($consumer)){
+		    $consumerModel = $consumer;
 		} else {
-			$consumerModel = $consumer;
+			$consumerModel = Mage::getModel('oauth/consumer')->load((int)$consumer);
 		}
 		
 		if ($consumerModel && $consumerModel->getId()){

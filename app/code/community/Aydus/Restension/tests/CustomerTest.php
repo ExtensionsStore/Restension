@@ -71,7 +71,6 @@ class CustomerTest extends PHPUnit_Framework_TestCase {
         $authorizationEndpoint = 'api/rest/customers/authorization';
         $authorizationUrl = $this->_callbackUrl . $authorizationEndpoint . '/' . urlencode($oauth_token) . '/' . urlencode('davidt@aydus.com') . '/' . urlencode('testing123') . '?oauth_token=' . urlencode($oauth_token);
 
-        var_dump($authorizationUrl);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $authorizationUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
