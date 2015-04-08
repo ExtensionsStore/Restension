@@ -12,7 +12,7 @@
     <modules>
         <Aydus_Restension>
             <version>0.1.0</version>
-            <magento>1.7</magento>
+            <minimum_version>1.7</minimum_version>
         </Aydus_Restension>
     </modules>
     <adminhtml>
