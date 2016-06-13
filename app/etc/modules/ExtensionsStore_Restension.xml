@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Restension module
+ *
+ * @category   ExtensionsStore
+ * @package    ExtensionsStore_Restension
+ * @author     Extensions Store <www.extensions-store.com>
+ */
+-->
+<config>
+    <modules>
+        <ExtensionsStore_Restension>
+            <active>true</active>
+            <codePool>community</codePool>
+        </ExtensionsStore_Restension>
+    </modules>
+</config>

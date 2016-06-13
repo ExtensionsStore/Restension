@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Restension configuration
+ *
+ * @category   ExtensionsStore
+ * @package    ExtensionsStore_Restension
+ * @author     Extensions Store <www.extensions-store.com>
+ */
+-->
+<config>
+    <api2>
+        <resource_groups>   
+            <customer>
+                <children>
+                    <customer_account translate="title" module="restension">
+                        <title>Customer Account</title>
+                        <sort_order>1000</sort_order>
+                    </customer_account>                    
+                    <customer_authorization translate="title" module="restension">
+                        <title>Customer Token</title>
+                        <sort_order>2000</sort_order>
+                    </customer_authorization>
+                    <customer_forgotpassword translate="title" module="restension">
+                        <title>Customer Forgot Password</title>
+                        <sort_order>3000</sort_order>
+                    </customer_forgotpassword>                    
+                </children>                
+            </customer>  
+            <!-- @todo doesn't work with admin group -->
+            <admin2 translate="title" module="restension">
+                <title>Admin</title>
+                <sort_order>1000</sort_order>   
+                <children>
+		            <admin_login translate="title" module="restension">
+		                <title>Admin Authorization</title>
+		                <sort_order>1000</sort_order>     
+		             </admin_login>           
+		            <admin_user translate="title" module="restension">
+		                <title>Admin User</title>
+		                <sort_order>1000</sort_order>     
+		             </admin_user>           		             
+                </children>         
+            </admin2>                     
+        </resource_groups>
+        <resources> 
+            <customer_account translate="title" module="restension">
+                <group>customer</group>
+                <model>restension/resource_customer_api2_account</model>
+                <working_model>customer/customer</working_model>
+                <title>Customer Account</title>
+                <sort_order>1000</sort_order>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges> 
+                <attributes translate="email password confirmation firstname lastname store_id">
+                    <email>Email</email>
+                    <password>Password</password>
+                    <confirmation>Confirmation</confirmation>
+                    <firstname>First Name</firstname>                    
+                    <lastname>Last Name</lastname>                    
+                    <store_id>Store Id</store_id>                    
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/customers/account/:oauth_token</route>
+                        <action_type>collection</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>                           
+            </customer_account>        
+            <customer_authorization translate="title" module="restension">
+                <group>customer</group>
+                <model>restension/resource_customer_api2_authorization</model>
+                <working_model>customer/customer</working_model>
+                <title>Customer Authorization</title>
+                <sort_order>2000</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges> 
+                <attributes translate="oauth_token password oauth_verifier">
+                    <oauth_token>Oauth Token</oauth_token>
+                    <password>Password</password>
+                    <oauth_verifier>Oauth Verifier</oauth_verifier>                    
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/customers/authorization/:oauth_token/:email/:password</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </customer_authorization>   
+            <customer_forgotpassword translate="title" module="restension">
+                <group>customer</group>
+                <model>restension/resource_customer_api2_forgotpassword</model>
+                <working_model>customer/customer</working_model>
+                <title>Customer Forgot Password</title>
+                <sort_order>3000</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges> 
+                <attributes translate="email result">
+                    <email>Email</email>
+                    <result>Result</result>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/customers/forgotpassword/:email</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>                           
+            </customer_forgotpassword>        
+            <admin_login translate="title" module="restension">
+                <group>admin2</group>
+                <model>restension/resource_admin_api2_login</model>
+                <working_model>admin/user</working_model>
+                <title>Admin Authorization</title>
+                <sort_order>1000</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges> 
+                <attributes translate="oauth_token username password oauth_verifier">
+                    <oauth_token>Oauth Token</oauth_token>
+                    <username>Username</username>
+                    <password>Password</password>
+                    <oauth_verifier>Oauth Verifier</oauth_verifier>                    
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/admin/login/:oauth_token/:username/:password</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </admin_login>
+            <admin_user translate="title" module="restension">
+                <group>admin2</group>
+                <model>restension/resource_admin_api2_user</model>
+                <working_model>admin/user</working_model>
+                <title>Admin User</title>
+                <sort_order>1000</sort_order>
+                <privileges>
+                    <admin>
+                        <retrieve>1</retrieve>
+                    </admin>
+                </privileges>
+                <attributes translate="user_id username email firstname lastname">
+                	<user_id>User ID</user_id>
+                	<username>Username</username>
+                	<email>Email</email>
+                	<firstname>Firstname</firstname>
+                	<lastname>Lastname</lastname>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/admin/user/:username</route>
+                        <action_type>entity</action_type>
+                    </route_entity>                                                   
+                </routes>   
+                <versions>1</versions>                           
+            </admin_user>                       
+        </resources>
+    </api2>
+</config>

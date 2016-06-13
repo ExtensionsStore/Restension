@@ -1,17 +1,17 @@
 {
-    "name": "aydus/restension",
+    "name": "extensions-store/restension",
     "license": "GPL-3.0",
     "type": "magento-module",
     "description": "Restension extends the Magento REST API.",
-    "homepage": "https://github.com/aydus/Restension.git",
+    "homepage": "https://github.com/ExtensionsStore/Restension.git",
     "require": {
         "php": ">=5.3",
         "magento-hackathon/magento-composer-installer": "*"
     },
     "authors": [
         {
-            "name": "David Tay",
-            "email": "davidt@aydus.com",
+            "name": "Extensions Store",
+            "email": "admin@extensions-store.com",
             "role": "Author/Maintainer"
         }
     ]

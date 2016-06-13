@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Restension config
+ *
+ * @category   ExtensionsStore
+ * @package    ExtensionsStore_Restension
+ * @author     Extensions Store <www.extensions-store.com>
+ */
+-->
+<config>
+    <modules>
+        <ExtensionsStore_Restension>
+            <version>1.0.0</version>
+        </ExtensionsStore_Restension>
+    </modules>
+    <phpunit>
+        <suite>
+            <modules>
+                <ExtensionsStore_Restension />
+            </modules>
+        </suite>
+    </phpunit>       
+    <global>      
+        <models>
+            <extensions_store_restension>
+                <class>ExtensionsStore_Restension_Model</class>
+                <resourceModel>extensions_store_restension_resource</resourceModel>
+            </extensions_store_restension>
+            <restension>
+                <class>ExtensionsStore_Restension_Model</class>
+                <resourceModel>extensions_store_restension_resource</resourceModel>
+            </restension>
+            <extensions_store_restension_resource>
+                <class>ExtensionsStore_Restension_Model_Resource</class>
+                <entities>
+                </entities>
+            </extensions_store_restension_resource>            
+        </models>
+        <helpers>
+            <extensions_store_restension>
+                <class>ExtensionsStore_Restension_Helper</class>
+            </extensions_store_restension>
+            <restension>
+                <class>ExtensionsStore_Restension_Helper</class>
+            </restension>            
+        </helpers>     
+    </global>         
+</config>
